@@ -14,10 +14,12 @@ public class BankAccount {
 
     // Default constructor
     public BankAccount() {
+        
         balance = 0;
         name = "";
         accountNumber = masterAccountNumber;
         masterAccountNumber++;
+    
     }
 
     // Constructor that takes the starting balance and a name
