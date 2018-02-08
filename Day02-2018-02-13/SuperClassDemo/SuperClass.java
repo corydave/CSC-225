@@ -9,7 +9,7 @@ public class SuperClass {
     }
 
     public void showValue() {
-        System.out.print("SuperClass: " + superClassVariable);
+        System.out.println("SuperClass: " + superClassVariable);
     }
 }
 
