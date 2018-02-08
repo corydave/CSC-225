@@ -3,5 +3,9 @@ public class SuperClassDriver {
         SuperClass supClass = new SuperClass(10);
         SubClass subClass = new SubClass(20);
         SuperClass subClass2 = new SubClass(30);
+
+        supClass.showValue();
+        subClass.showValue();
+        subClass2.showValue();
     }
 }
