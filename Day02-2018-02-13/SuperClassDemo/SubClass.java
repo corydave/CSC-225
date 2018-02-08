@@ -9,6 +9,6 @@ public class SubClass extends SuperClass {
     }
 
     public void showValue() {
-        System.out.print("SubClass: " + subClassVariable);
+        System.out.println("SubClass: " + subClassVariable);
     }
 }
