@@ -1,0 +1,20 @@
+
+Battle(Character char1, Character char2)
+
+Each TURN will:
+
+Maybe, maybe not call invokeSpecial() on char1 
+Maybe, maybe not call invokeSpecial() on char2
+
+char1 will attack char2 while char2 defends
+Check to see if char2 has health < 0 - if true, game over
+
+char2 will attack char1 while char1 defends
+Check to see if char1 has health < 0 - if true, game over
+
+return [winner, loser]
+
+
+
+invokeSpecial() needs to be added!!!!!
+attack/defend?
