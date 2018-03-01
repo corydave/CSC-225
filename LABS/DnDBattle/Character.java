@@ -113,7 +113,8 @@ public abstract class Character {
     // This method will receive the stats from an opponent
     // and will load the oppInfo array
     public void loadOppInfo(int[] oppStats) {
-        oppInfo[] = new int[oppStats.length];
+//      oppInfo[] = new int[oppStats.length]; // THIS IS A TYPO!!!!
+        oppInfo = new int[oppStats.length];
     }
     // END NEW
 
