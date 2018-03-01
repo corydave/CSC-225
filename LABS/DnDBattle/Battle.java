@@ -19,6 +19,7 @@ public class Battle {
    * The battle will begin, and consists of a multiple rounds. Each wround will:
    *   1 - Collect the vital stats from each character and report to the other character
    *   2 - Algorithmically, the specialEffect() method may be called on one or both Characters
+   *          - NOTE: The higher the instance variable 'special' is, the more likely specialEffect() will be called
    *   3 - The first player will attack the second player
    * . 4 - The battle is over if the health of the second player is 0 or below
    *   5 - The second player will attack the first player
