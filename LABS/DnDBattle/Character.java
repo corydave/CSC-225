@@ -107,7 +107,7 @@ public abstract class Character {
 
     public abstract double attack();
     public abstract double defend();
-    public abstract double specialEffect();
+    public abstract void specialEffect();
     
     // NEW in Character 2.0!!!
     // This method will receive the stats from an opponent
