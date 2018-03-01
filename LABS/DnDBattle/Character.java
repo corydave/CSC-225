@@ -9,9 +9,23 @@ public abstract class Character {
     private int defense;
     private int special;
     private int points;
+    
+    // NEW in Character 2.0!!!
+    // An array that will hold the opponents info
+    //    [currentHealth, maxHealth, strength, defense, special, points]
+    private int[] oppInfo;
+    // END NEW    
 
 
     // Getters and setters
+    
+    // NEW in Character 2.0!!!
+    public int[] getOppInfo() {
+        return oppInfo;
+    }
+    // END NEW    
+    
+    
     public String getName() {
         return name;
     }
@@ -91,10 +105,17 @@ public abstract class Character {
                 ", points=" + points;
     }
 
-    public abstract void attack();
-    public abstract void defend();
-    public abstract void specialEffect();
-
+    public abstract double attack();
+    public abstract double defend();
+    public abstract double specialEffect();
+    
+    // NEW in Character 2.0!!!
+    // This method will receive the stats from an opponent
+    // and will load the oppInfo array
+    public void loadOppInfo(int[] oppStats) {
+        oppInfo[] = new int[oppStats.length];
+    }
+    // END NEW
 
 
 }
