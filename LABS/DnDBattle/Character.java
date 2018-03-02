@@ -10,21 +10,13 @@ public abstract class Character {
     private int special;
     private int points;
     
-    // NEW in Character 2.0!!!
-    // An array that will hold the opponents info
-    //    [currentHealth, maxHealth, strength, defense, special, points]
-    private int[] oppInfo;
-    // END NEW    
-
+    private boolean debug = true; // Will be changed to false during official battle
+    
+    private int[] myStats; //    [currentHealth, maxHealth, strength, defense, special, points]
+    private int[] oppInfo; //    [currentHealth, maxHealth, strength, defense, special, points]   
+    
 
     // Getters and setters
-    
-    // NEW in Character 2.0!!!
-    public int[] getOppInfo() {
-        return oppInfo;
-    }
-    // END NEW    
-    
     
     public String getName() {
         return name;
@@ -89,6 +81,26 @@ public abstract class Character {
     public void setPoints(int points) {
         this.points = points;
     }
+    
+    public boolean getDebug() {
+        return debug;
+    }
+    
+    public int[] getMyInfo() {
+        if (debug) {
+            System.out.println(name + "'s stats have been given away");
+        }
+        return myStats;
+    }
+    
+    public void setMyInfo(){
+        myStats[0] = currentHealth;
+        myStats[1] = maxHealth;
+        myStats[2] = strength;
+        myStats[3] = defense;
+        myStats[4] = special;
+        myStats[4] = points;
+    }    
 
     // Other methods
 
@@ -105,22 +117,23 @@ public abstract class Character {
                 ", points=" + points;
     }
 
+    public void loadOppInfo(int[] oppStats) {
+        
+        if (debug) {
+            System.out.println("Opponents stats have been received.");
+        }
+        
+        oppInfo = oppStats;
+    }
+
     public abstract double attack();
     public abstract double defend();
     public abstract void specialEffect();
     
-    // NEW in Character 2.0!!!
-    // This method will receive the stats from an opponent
-    // and will load the oppInfo array
-    public void loadOppInfo(int[] oppStats) {
-//      oppInfo[] = new int[oppStats.length]; // THIS IS A TYPO!!!!
-        oppInfo = new int[oppStats.length];
-    }
-    // END NEW
+
 
 
 }
-
 
 
 
