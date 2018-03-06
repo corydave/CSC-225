@@ -93,6 +93,10 @@ public abstract class Character {
         return myStats;
     }
     
+    public int[] getOppInfo() {
+        return oppInfo;
+    }
+    
     public void setMyInfo(){
         myStats[0] = currentHealth;
         myStats[1] = maxHealth;
