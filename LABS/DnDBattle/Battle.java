@@ -59,7 +59,11 @@ public class Battle {
         defend = rollDice(Math.round(p2.defend()), D1_SIZE);
         
         // Result of attack/defend
-        diff = attack - defend;        
+        diff = attack - defend;
+        
+        if (diff < 0) {
+            diff = 0;
+        }
         
         if (debug) {
             System.out.println("Player 1 attacks with " + attack + " and player 2 defends with " + defend + " for a difference of " + diff);
@@ -87,6 +91,11 @@ public class Battle {
 
         // Results of attack/defend
         diff = attack - defend;
+
+        if (diff < 0) {
+            diff = 0;
+        }
+      
 
         if (debug) {
             System.out.println("Player 2 attacks with " + attack + " and player 1 defends with " + defend + " for a difference of " + diff);
