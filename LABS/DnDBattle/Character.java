@@ -103,7 +103,7 @@ public abstract class Character implements TieBreaker {
         myStats[2] = strength;
         myStats[3] = defense;
         myStats[4] = special;
-        myStats[4] = points;
+        myStats[5] = points;
     }    
 
     // Other methods
