@@ -130,6 +130,48 @@ public abstract class Character {
         oppInfo = oppStats;
     }
 
+    public int breakTie(Character c) {
+
+        if (currentHealth > c.getCurrentHealth()) {
+            return 1;
+        }
+
+        if (currentHealth < c.getCurrentHealth()) {
+            return -1;
+        }
+
+        if (special > c.getSpecial()) {
+            return 1;
+        }
+
+        if (special < c.getSpecial()) {
+            return -1;
+        }
+
+        if (defense > c.getDefense()) {
+            return 1;
+        }
+
+        if (defense < c.getDefense()) {
+            return -1;
+        }
+
+        if (strength > c.getStrength()) {
+            return 1;
+        }
+
+        if (strength < c.getStrength()) {
+            return -1;
+        }
+
+        if (Math.random() < .5) {
+            return 1;
+        } else {
+            return -1;
+        }
+
+    }    
+    
     public abstract double attack();
     public abstract double defend();
     public abstract void specialEffect();
