@@ -1,4 +1,4 @@
-public abstract class Character {
+public abstract class Character implements TieBreaker {
 
     // Instance variables
     private String name;
