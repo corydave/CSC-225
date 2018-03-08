@@ -133,7 +133,7 @@ public class Battle {
                 return players;
             }
 
-            numberOfRounds++;
+            rounds++;
 
         }
 
