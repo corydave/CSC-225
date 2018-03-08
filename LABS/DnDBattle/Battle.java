@@ -4,6 +4,7 @@ import java.util.Random;
 public class Battle {
 
     private final int D1_SIZE = 6;
+    private int numberOfRounds = 25;
 
     private Character p1;
     private Character p2;
@@ -17,31 +18,31 @@ public class Battle {
 
         try {
 
-        System.out.print("Loading characters");
-        Thread.sleep(750);
-        System.out.print(".");
-        Thread.sleep(750);
-        System.out.print(".");
-        Thread.sleep(750);
-        System.out.print(".");
+            System.out.print("Loading characters");
+            Thread.sleep(750);
+            System.out.print(".");
+            Thread.sleep(750);
+            System.out.print(".");
+            Thread.sleep(750);
+            System.out.print(".");
 
 
-        if (Math.random() > .5) {
-            p1 = playerOne;
-            p2 = playerTwo;
-        } else {
-            p2 = playerOne;
-            p1 = playerTwo;
+            if (Math.random() > .5) {
+                p1 = playerOne;
+                p2 = playerTwo;
+            } else {
+                p2 = playerOne;
+                p1 = playerTwo;
+            }
+
+            System.out.println("\n\n");
+            System.out.println("Player 1 is " + p1.getName());
+            System.out.println("Player 2 is " + p2.getName());
+            System.out.println("\nMay the odds be forever in your favour.");
+
+        } catch (Exception e) {
+            System.out.println("Error");
         }
-
-        System.out.println("\n\n");
-        System.out.println("Player 1 is " + p1.getName());
-        System.out.println("Player 2 is " + p2.getName());
-        System.out.println("\nMay the odds be forever in your favour.");
-
-    } catch (Exception e) {
-        System.out.println("Error");
-    }
 
     }
 
@@ -53,7 +54,9 @@ public class Battle {
         int defend;
         int diff;
 
-        while (true) {
+        int rounds = 0;
+
+        while (rounds < numberOfRounds) {
             System.out.println();
             System.out.println("Exchanging information...");
             System.out.println();
@@ -129,7 +132,20 @@ public class Battle {
                 System.out.println("The winner is: " + p2.getName());
                 return players;
             }
+
+            numberOfRounds++;
+
         }
+
+        if (p1.breakTie(p2) > 0) {
+            players[0] = p1;
+            players[1] = p2;
+        } else {
+            players[0] = p2;
+            players[1] = p1;            
+        }
+
+        return players;
 
 
     }
