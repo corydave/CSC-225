@@ -1,3 +1,5 @@
+// doggo.jpg came from: https://unsplash.com/photos/vT9SSvrAncY
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
