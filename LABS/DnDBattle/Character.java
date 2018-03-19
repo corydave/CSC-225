@@ -9,15 +9,15 @@ public abstract class Character implements TieBreaker {
     private int defense;
     private int special;
     private int points;
-    
+
     private boolean debug = true; // Will be changed to false during official battle
-    
-    private int[] myStats; //    [currentHealth, maxHealth, strength, defense, special, points]
-    private int[] oppInfo; //    [currentHealth, maxHealth, strength, defense, special, points]   
-    
+
+    private int[] myStats = new int[6]; //    [currentHealth, maxHealth, strength, defense, special, points]
+    private int[] oppInfo; //    [currentHealth, maxHealth, strength, defense, special, points]
+
 
     // Getters and setters
-    
+
     public String getName() {
         return name;
     }
@@ -81,22 +81,24 @@ public abstract class Character implements TieBreaker {
     public void setPoints(int points) {
         this.points = points;
     }
-    
+
     public boolean getDebug() {
         return debug;
     }
-    
+
     public int[] getMyInfo() {
+
         if (debug) {
             System.out.println(name + "'s stats have been given away");
         }
-        return myStats;
+
+        return new int[] {getCurrentHealth(), getMaxHealth(),getStrength(),getDefense(),getSpecial(),getPoints()};
     }
-    
+
     public int[] getOppInfo() {
         return oppInfo;
     }
-    
+
     public void setMyInfo(){
         myStats[0] = currentHealth;
         myStats[1] = maxHealth;
@@ -104,7 +106,7 @@ public abstract class Character implements TieBreaker {
         myStats[3] = defense;
         myStats[4] = special;
         myStats[5] = points;
-    }    
+    }
 
     // Other methods
 
@@ -122,11 +124,11 @@ public abstract class Character implements TieBreaker {
     }
 
     public void loadOppInfo(int[] oppStats) {
-        
+
         if (debug) {
             System.out.println("Opponents stats have been received.");
         }
-        
+
         oppInfo = oppStats;
     }
 
@@ -170,17 +172,16 @@ public abstract class Character implements TieBreaker {
             return -1;
         }
 
-    }    
-    
+    }
+
     public abstract double attack();
     public abstract double defend();
     public abstract void specialEffect();
-    
+
 
 
 
 }
-
 
 
 
