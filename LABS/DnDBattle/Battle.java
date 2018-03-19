@@ -1,5 +1,6 @@
 import java.lang.Math;
 import java.util.Random;
+import java.util.ArrayList;
 
 public class Battle {
 
@@ -8,7 +9,33 @@ public class Battle {
 
     private Character p1;
     private Character p2;
+    private ArrayList<Character> playerRoster;
+    private ArrayList<int[]> moves = new ArrayList<int[]>();
+    private int roundCounter = 0;
+
     private boolean debug = true; // For debugging - this will be false during actual gameplay
+
+    public ArrayList<int[]> getMoves() {
+
+        return moves;
+    }
+
+    public int getRounds() {
+        return roundCounter;
+    }
+
+    public boolean getDebug() {
+        return debug;
+    }
+    
+    public void setDebug(boolean onOff) {
+        
+        if (onOff) {
+            debug = true;
+        } else {
+            debug = false;
+        }
+    }
 
     public Battle() {
 
@@ -30,9 +57,13 @@ public class Battle {
             if (Math.random() > .5) {
                 p1 = playerOne;
                 p2 = playerTwo;
+                playerRoster.add(playerOne);
+                playerRoster.add(playerTwo);
             } else {
                 p2 = playerOne;
                 p1 = playerTwo;
+                playerRoster.add(playerTwo);
+                playerRoster.add(playerOne);
             }
 
             System.out.println("\n\n");
@@ -41,10 +72,15 @@ public class Battle {
             System.out.println("\nMay the odds be forever in your favour.");
 
         } catch (Exception e) {
-            System.out.println("Error");
+            System.out.println("Error: " + e.getMessage());
         }
 
     }
+
+    public ArrayList<Character> getOrder() {
+        return playerRoster;
+    }
+
 
     public Character[] superSmash() {
 
@@ -57,7 +93,11 @@ public class Battle {
         int rounds = 0;
 
         while (rounds < numberOfRounds) {
+
+            roundCounter++;
+
             System.out.println();
+            System.out.println("Round: " + rounds);
             System.out.println("Exchanging information...");
             System.out.println();
 
@@ -92,6 +132,9 @@ public class Battle {
 
             }
 
+            moves.add(p1.getMyInfo());
+            moves.add(p2.getMyInfo());
+
             // Check to see if p2 died :(
             if (p2.getCurrentHealth() <= 0) {
 
@@ -125,6 +168,9 @@ public class Battle {
 
             }
 
+            moves.add(p1.getMyInfo());
+            moves.add(p2.getMyInfo());
+
             // Check to see if p1 died :(
             if (p1.getCurrentHealth() <= 0) {
                 players[0] = p2;
@@ -142,7 +188,7 @@ public class Battle {
             players[1] = p2;
         } else {
             players[0] = p2;
-            players[1] = p1;            
+            players[1] = p1;
         }
 
         return players;
