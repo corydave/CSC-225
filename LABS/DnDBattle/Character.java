@@ -1,3 +1,5 @@
+// VERSION 1.1
+
 public abstract class Character implements TieBreaker {
 
     // Instance variables
