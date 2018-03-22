@@ -1,4 +1,4 @@
-// VERSION 1.1
+// VERSION 1.1.1
 
 public abstract class Character implements TieBreaker {
 
@@ -11,6 +11,7 @@ public abstract class Character implements TieBreaker {
     private int defense;
     private int special;
     private int points;
+    private String image;
 
     private boolean debug = true; // Will be changed to false during official battle
 
@@ -109,6 +110,15 @@ public abstract class Character implements TieBreaker {
         myStats[4] = special;
         myStats[5] = points;
     }
+    
+    public String getImage() {
+        return image;
+    }
+    
+    public void setImage(String str) {
+        image = str;
+    }
+    
 
     // Other methods
 
