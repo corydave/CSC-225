@@ -11,7 +11,7 @@ public class Battle {
 
     private Character p1;
     private Character p2;
-    private ArrayList<Character> playerRoster;
+    private ArrayList<Character> playerRoster = new ArrayList<Character>();
     private ArrayList<int[]> moves = new ArrayList<int[]>();
     private int roundCounter = 0;
 
