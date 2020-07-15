@@ -57,7 +57,7 @@ public class JavaFXDemo extends Application {
         PasswordField pwBox = new PasswordField();
         grid.add(pwBox,1,2);
 
-        Image img = new Image("doogo.jpg");
+        Image img = new Image("doggo.jpg");
         ImageView imgView = new ImageView(img);
         grid.add(imgView,0,3,2,1);
 
